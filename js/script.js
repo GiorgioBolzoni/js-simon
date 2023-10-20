@@ -62,6 +62,8 @@ while (numeriGenerati.length < numeriDaGenerare) {
 console.log(numeriGenerati);
 let numeriGeneratiDiv = document.querySelector('.numeriGeneratiDiv')
 numeriGeneratiDiv.innerHTML = `
+Memorizza i seguenti numeri!  
+<br>
 ${numeriGenerati}
 `
 const turnoUtente = document.getElementById('turnoUtente')
