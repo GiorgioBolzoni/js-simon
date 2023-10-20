@@ -28,7 +28,7 @@ numeriGenerati[3, 5, 8, 9, 89]
 numeriUtente[5, 2, 7, 9]
 
 
-array numeriIndovinati[5, 2] numeriIndovinati.lenght 2
+array numeriIndovinati[5, 9] numeriIndovinati.lenght 2
 
 ciclo sui numeriUtente e per ogni numero controllo se è incluso nell'array dei numeri generati
 
@@ -48,7 +48,6 @@ Per ovviare a questo problema si può impostare 2 timeout differenti a distanza 
 const min = 1;
 const max = 100;
 const numeriDaGenerare = 5;
-
 const numeriGenerati = [];
 // console.log(numeriGenerati)
 
@@ -59,7 +58,6 @@ while (numeriGenerati.length < numeriDaGenerare) {
         numeriGenerati.push(number);
     }
     // console.log(number);
-
 }
 console.log(numeriGenerati);
 let numeriGeneratiDiv = document.querySelector('.numeriGeneratiDiv')
@@ -79,16 +77,37 @@ const numeriUtente = [];
 const btn = document.querySelector('button');
 
 btn.addEventListener('click', function () {
+    let valoreInserito1;
+    let valoreInserito2;
+    let valoreInserito3;
+    let valoreInserito4;
+    let valoreInserito5;
 
     while (numeriUtente.length < numeriDaGenerare) {
-        let valoreInserito1 = document.getElementById('data1').value;
-        let valoreInserito2 = document.getElementById('data2').value;
-        let valoreInserito3 = document.getElementById('data3').value;
-        let valoreInserito4 = document.getElementById('data4').value;
-        let valoreInserito5 = document.getElementById('data5').value;
+        valoreInserito1 = parseInt(document.getElementById('data1').value);
+        valoreInserito2 = parseInt(document.getElementById('data2').value);
+        valoreInserito3 = parseInt(document.getElementById('data3').value);
+        valoreInserito4 = parseInt(document.getElementById('data4').value);
+        valoreInserito5 = parseInt(document.getElementById('data5').value);
+
         numeriUtente.push(valoreInserito1, valoreInserito2, valoreInserito3, valoreInserito4, valoreInserito5);
     };
     console.log(numeriUtente);
 
-});
+    let numeriIndovinati = [];
 
+    if (numeriGenerati.includes(valoreInserito1)) numeriIndovinati.push(valoreInserito1);
+    if (numeriGenerati.includes(valoreInserito2)) numeriIndovinati.push(valoreInserito2);
+    if (numeriGenerati.includes(valoreInserito3)) numeriIndovinati.push(valoreInserito3);
+    if (numeriGenerati.includes(valoreInserito4)) numeriIndovinati.push(valoreInserito4);
+    if (numeriGenerati.includes(valoreInserito5)) numeriIndovinati.push(valoreInserito5);
+
+
+
+    let score = numeriIndovinati.length;
+    console.log(score);
+    let alert = document.querySelector('.alert')
+    alert.classList.remove('d-none')
+    alert.innerHTML = `Hai indovinato ${score} numeri!!!`
+    if (numeriIndovinati.length === 0) alert.classList.add('redAlert')
+});
