@@ -67,4 +67,8 @@ numeriGeneratiDiv.innerHTML = `
 ${numeriGenerati}
 `
 
+const clock = setTimeout(timer, 3000);
 
+function timer() {
+    numeriGeneratiDiv.classList.add('d-none');
+};
