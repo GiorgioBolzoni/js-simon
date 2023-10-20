@@ -76,4 +76,19 @@ function timer() {
 };
 
 const numeriUtente = [];
-prompt
+const btn = document.querySelector('button');
+
+btn.addEventListener('click', function () {
+
+    while (numeriUtente.length < numeriDaGenerare) {
+        let valoreInserito1 = document.getElementById('data1').value;
+        let valoreInserito2 = document.getElementById('data2').value;
+        let valoreInserito3 = document.getElementById('data3').value;
+        let valoreInserito4 = document.getElementById('data4').value;
+        let valoreInserito5 = document.getElementById('data5').value;
+        numeriUtente.push(valoreInserito1, valoreInserito2, valoreInserito3, valoreInserito4, valoreInserito5);
+    };
+    console.log(numeriUtente);
+
+});
+
