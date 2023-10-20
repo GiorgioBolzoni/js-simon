@@ -44,6 +44,27 @@ Attenzione che usando Google Chrome, il prompt può dare problemi con la visuali
 Per ovviare a questo problema si può impostare 2 timeout differenti a distanza di 1 secondo: il primo nasconde i numeri dal dom (dopo 30 secondi) e il secondo chiede i numeri all'utente (dopo 31 secondi)
 */
 
+// let number;
+const min = 1;
+const max = 100;
+const numeriDaGenerare = 5;
 
+const numeriGenerati = [];
+// console.log(numeriGenerati)
+
+while (numeriGenerati.length < numeriDaGenerare) {
+    const number = getRndInteger(1, 100);
+
+    if (!numeriGenerati.includes(number)) {
+        numeriGenerati.push(number);
+    }
+    // console.log(number);
+
+}
+console.log(numeriGenerati);
+let numeriGeneratiDiv = document.querySelector('.numeriGeneratiDiv')
+numeriGeneratiDiv.innerHTML = `
+${numeriGenerati}
+`
 
 
