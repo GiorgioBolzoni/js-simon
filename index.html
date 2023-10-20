@@ -23,11 +23,20 @@
         <!-- <div id="timer"></div> -->
         <!-- </div> -->
         <!-- casella di input -->
-        <label for="data">Dato in input</label>
-        <input type="text" name="data" id="data">
+        <div class="d-none flex-column justify-content-center align-items-center border align-content-center text-center"
+            id="turnoUtente">
+            <label for="data">Inserisci i numeri che ti ricordi</label>
+            <div class="d-flex input-section border w-100">
+                <input type="text" name="data" id="data">
+                <input type="text" name="data" id="data">
+                <input type="text" name="data" id="data">
+                <input type="text" name="data" id="data">
+                <input type="text" name="data" id="data">
+            </div>
 
-        <!-- bottone -->
-        <button class="btn btn-success">Invia</button>
+            <!-- bottone -->
+            <button class="btn btn-success">Invia</button>
+        </div>
 
         <!-- contenitore x risultato/errore -->
         <div class="d-none alert"></div>

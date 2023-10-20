@@ -66,9 +66,14 @@ let numeriGeneratiDiv = document.querySelector('.numeriGeneratiDiv')
 numeriGeneratiDiv.innerHTML = `
 ${numeriGenerati}
 `
+const turnoUtente = document.getElementById('turnoUtente')
 
 const clock = setTimeout(timer, 3000);
 
 function timer() {
     numeriGeneratiDiv.classList.add('d-none');
+    turnoUtente.classList.remove('d-none')
 };
+
+const numeriUtente = [];
+prompt

@@ -1,0 +1,13 @@
+.input-section {
+    width: 30%;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+input {
+    width: 50px;
+    text-align: center;
+    margin: 0 10px;
+    color: red;
+    font-weight: bold;
+}
