@@ -68,7 +68,7 @@ ${numeriGenerati}
 `
 const turnoUtente = document.getElementById('turnoUtente')
 
-const clock = setTimeout(timer, 3000);
+const clock = setTimeout(timer, 30000);
 
 function timer() {
     numeriGeneratiDiv.classList.add('d-none');
