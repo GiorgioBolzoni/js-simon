@@ -44,72 +44,79 @@ Attenzione che usando Google Chrome, il prompt può dare problemi con la visuali
 Per ovviare a questo problema si può impostare 2 timeout differenti a distanza di 1 secondo: il primo nasconde i numeri dal dom (dopo 30 secondi) e il secondo chiede i numeri all'utente (dopo 31 secondi)
 */
 
-// let number;
-const min = 1;
-const max = 100;
-const numeriDaGenerare = 5;
-const numeriGenerati = [];
-// console.log(numeriGenerati)
+"use strict";
 
-while (numeriGenerati.length < numeriDaGenerare) {
-    const number = getRndInteger(1, 100);
+simonSays()
 
-    if (!numeriGenerati.includes(number)) {
-        numeriGenerati.push(number);
+function simonSays() {
+
+    // let number;
+    const min = 1;
+    const max = 100;
+    const numeriDaGenerare = 5;
+    const numeriGenerati = [];
+    // console.log(numeriGenerati)
+
+    while (numeriGenerati.length < numeriDaGenerare) {
+        const number = getRndInteger(1, 100);
+
+        if (!numeriGenerati.includes(number)) {
+            numeriGenerati.push(number);
+        }
+        // console.log(number);
     }
-    // console.log(number);
-}
-console.log(numeriGenerati);
-let numeriGeneratiDiv = document.querySelector('.numeriGeneratiDiv')
-numeriGeneratiDiv.innerHTML = `
+    console.log(numeriGenerati);
+    let numeriGeneratiDiv = document.querySelector('.numeriGeneratiDiv')
+    numeriGeneratiDiv.innerHTML = `
 Memorizza i seguenti numeri!  
 <br>
 ${numeriGenerati}
 `
-const turnoUtente = document.getElementById('turnoUtente')
+    const turnoUtente = document.getElementById('turnoUtente')
 
-const clock = setTimeout(timer, 30000);
+    const clock = setTimeout(timer, 30000);
 
-function timer() {
-    numeriGeneratiDiv.classList.add('d-none');
-    turnoUtente.classList.remove('d-none')
-};
-
-const numeriUtente = [];
-const btn = document.querySelector('button');
-
-btn.addEventListener('click', function () {
-    let valoreInserito1;
-    let valoreInserito2;
-    let valoreInserito3;
-    let valoreInserito4;
-    let valoreInserito5;
-
-    while (numeriUtente.length < numeriDaGenerare) {
-        valoreInserito1 = parseInt(document.getElementById('data1').value);
-        valoreInserito2 = parseInt(document.getElementById('data2').value);
-        valoreInserito3 = parseInt(document.getElementById('data3').value);
-        valoreInserito4 = parseInt(document.getElementById('data4').value);
-        valoreInserito5 = parseInt(document.getElementById('data5').value);
-
-        numeriUtente.push(valoreInserito1, valoreInserito2, valoreInserito3, valoreInserito4, valoreInserito5);
+    function timer() {
+        numeriGeneratiDiv.classList.add('d-none');
+        turnoUtente.classList.remove('d-none')
     };
-    console.log(numeriUtente);
 
-    let numeriIndovinati = [];
+    const numeriUtente = [];
+    const btn = document.querySelector('button');
 
-    if (numeriGenerati.includes(valoreInserito1)) numeriIndovinati.push(valoreInserito1);
-    if (numeriGenerati.includes(valoreInserito2)) numeriIndovinati.push(valoreInserito2);
-    if (numeriGenerati.includes(valoreInserito3)) numeriIndovinati.push(valoreInserito3);
-    if (numeriGenerati.includes(valoreInserito4)) numeriIndovinati.push(valoreInserito4);
-    if (numeriGenerati.includes(valoreInserito5)) numeriIndovinati.push(valoreInserito5);
+    btn.addEventListener('click', function () {
+        let valoreInserito1;
+        let valoreInserito2;
+        let valoreInserito3;
+        let valoreInserito4;
+        let valoreInserito5;
+
+        while (numeriUtente.length < numeriDaGenerare) {
+            valoreInserito1 = parseInt(document.getElementById('data1').value);
+            valoreInserito2 = parseInt(document.getElementById('data2').value);
+            valoreInserito3 = parseInt(document.getElementById('data3').value);
+            valoreInserito4 = parseInt(document.getElementById('data4').value);
+            valoreInserito5 = parseInt(document.getElementById('data5').value);
+
+            numeriUtente.push(valoreInserito1, valoreInserito2, valoreInserito3, valoreInserito4, valoreInserito5);
+        };
+        console.log(numeriUtente);
+
+        let numeriIndovinati = [];
+
+        if (numeriGenerati.includes(valoreInserito1)) numeriIndovinati.push(valoreInserito1);
+        if (numeriGenerati.includes(valoreInserito2)) numeriIndovinati.push(valoreInserito2);
+        if (numeriGenerati.includes(valoreInserito3)) numeriIndovinati.push(valoreInserito3);
+        if (numeriGenerati.includes(valoreInserito4)) numeriIndovinati.push(valoreInserito4);
+        if (numeriGenerati.includes(valoreInserito5)) numeriIndovinati.push(valoreInserito5);
 
 
 
-    let score = numeriIndovinati.length;
-    console.log(score);
-    let alert = document.querySelector('.alert')
-    alert.classList.remove('d-none')
-    alert.innerHTML = `Hai indovinato ${score} numeri!!!`
-    if (numeriIndovinati.length === 0) alert.classList.add('redAlert')
-});
+        let score = numeriIndovinati.length;
+        console.log(score);
+        let alert = document.querySelector('.alert')
+        alert.classList.remove('d-none')
+        alert.innerHTML = `Hai indovinato ${score} numeri!!!`
+        if (numeriIndovinati.length === 0) alert.classList.add('redAlert')
+    });
+}
